@@ -26,7 +26,7 @@ $default_icon = '<svg class="w-6 h-6 text-brand-sage" fill="none" stroke="curren
 $wrapper_attrs = get_block_wrapper_attributes( [ 'class' => 'zg-icon-cards' ] );
 ?>
 <section <?php echo $wrapper_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-    <div class="py-20 px-5 lg:px-8">
+    <div class="<?php echo ( $section_headline || $section_content ) ? 'py-20' : 'pt-8 pb-20'; ?> px-5 lg:px-8">
         <div class="max-w-6xl mx-auto">
 
             <?php if ( $section_headline || $section_content ) : ?>
@@ -58,15 +58,13 @@ $wrapper_attrs = get_block_wrapper_attributes( [ 'class' => 'zg-icon-cards' ] );
                 ?>
                 <div class="bg-white rounded-2xl shadow-sm border border-brand-dark/8 flex flex-col" style="padding: 2rem 1.75rem;">
 
+                    <?php if ( $icon_url ) : ?>
                     <div class="w-12 h-12 rounded-xl bg-brand-sage/10 flex items-center justify-center mb-5 shrink-0">
-                        <?php if ( $icon_url ) : ?>
-                            <img src="<?php echo esc_url( $icon_url ); ?>"
-                                 alt="<?php echo esc_attr( $icon_alt ); ?>"
-                                 class="w-7 h-7 object-contain" />
-                        <?php else : ?>
-                            <?php echo $default_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                        <?php endif; ?>
+                        <img src="<?php echo esc_url( $icon_url ); ?>"
+                             alt="<?php echo esc_attr( $icon_alt ); ?>"
+                             class="w-7 h-7 object-contain" />
                     </div>
+                    <?php endif; ?>
 
                     <?php if ( $headline ) : ?>
                     <h3 class="font-serif text-xl font-bold text-brand-dark leading-snug mb-3">

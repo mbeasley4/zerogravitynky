@@ -97,7 +97,7 @@ $arrow_svg = '<svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stro
 
                 <?php if ( $heading ) : ?>
                 <h2 class="font-serif text-3xl lg:text-4xl xl:text-5xl <?php echo esc_attr( $heading_class ); ?> font-bold leading-tight mb-5">
-                    <?php echo esc_html( $heading ); ?>
+                    <?php echo wp_kses_post( $heading ); ?>
                 </h2>
                 <?php endif; ?>
 
