@@ -5,7 +5,7 @@
 
 get_header();
 
-$today = current_time( 'Y-m-d' );
+$today = current_time( 'Y-m-d' );  
 
 // ── Active specials (published, end date >= today OR no end date) ─────────────
 $active_query = new WP_Query( [
