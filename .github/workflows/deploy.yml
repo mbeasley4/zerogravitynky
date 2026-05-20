@@ -1,0 +1,66 @@
+name: Deploy to Lightsail
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # allow manual trigger from GitHub UI
+
+jobs:
+  deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Source ──────────────────────────────────────────────────────────
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ── 2. Node / build ────────────────────────────────────────────────────
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build theme assets
+        run: npm run build
+
+      - name: Build editor CSS
+        run: npm run build:editor
+
+      # ── 3. SSH setup ────────────────────────────────────────────────────────
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.LIGHTSAIL_SSH_KEY }}" > ~/.ssh/deploy.pem
+          chmod 600 ~/.ssh/deploy.pem
+          ssh-keyscan -H "${{ secrets.LIGHTSAIL_HOST }}" >> ~/.ssh/known_hosts
+
+      # ── 4. Deploy ───────────────────────────────────────────────────────────
+      - name: Sync theme to server
+        run: |
+          rsync -az --delete \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='node_modules/' \
+            --exclude='src/' \
+            --exclude='*.log' \
+            --exclude='.DS_Store' \
+            -e "ssh -i ~/.ssh/deploy.pem" \
+            ./ \
+            "${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}:/var/www/sites/zerogravity_wp/wp-content/themes/zerogravitynky/"
+
+      # ── 5. Clear PHP OPcache (requires passwordless sudo for www-data) ──────
+      - name: Reload PHP-FPM
+        run: |
+          ssh -i ~/.ssh/deploy.pem \
+            "${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}" \
+            "sudo systemctl reload php-fpm 2>/dev/null || sudo systemctl reload php8.3-fpm 2>/dev/null || sudo systemctl reload php8.2-fpm 2>/dev/null || true"
+
+      # ── 6. Cleanup ──────────────────────────────────────────────────────────
+      - name: Remove SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy.pem

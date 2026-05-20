@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/zg-seo-callout",
+  "version": "1.0.0",
+  "title": "ZG SEO Callout",
+  "category": "zerogravitynky",
+  "icon": "megaphone",
+  "description": "SEO-rich callout block with an opening question, body paragraph, and up to two CTA buttons. Ideal for local search intent copy.",
+  "attributes": {
+    "question":   { "type": "string", "default": "Looking for the best med spa membership in Northern Kentucky?" },
+    "body":       { "type": "string", "default": "The Beauty Bank Membership at Zero Gravity Aesthetics in Crestview Hills, KY gives you unmatched flexibility, savings, and results. No expiring funds, no pressure—just smarter self-care. Call (859) 344-3250 today to get started." },
+    "ctaLabel":   { "type": "string", "default": "Call (859) 344-3250" },
+    "ctaUrl":     { "type": "string", "default": "tel:8593443250" },
+    "ctaLabel2":  { "type": "string", "default": "View Membership" },
+    "ctaUrl2":    { "type": "string", "default": "" }
+  },
+  "supports": { "html": false, "align": ["full"] },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

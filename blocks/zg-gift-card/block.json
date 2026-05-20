@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/zg-gift-card",
+  "version": "1.0.0",
+  "title": "ZG Gift Card Banner",
+  "category": "zerogravitynky",
+  "icon": "awards",
+  "description": "Gift card CTA strip linking to the gift card product page. Editable headline, subtext, and CTA label.",
+  "attributes": {
+    "headline": { "type": "string", "default": "Give the Gift of Beauty" },
+    "subtext":  { "type": "string", "default": "Share the Zero Gravity experience with someone you love. Gift cards can be used on all products and services." },
+    "ctaLabel": { "type": "string", "default": "Shop Gift Cards" },
+    "variant":  { "type": "string", "default": "dark", "enum": ["light", "dark"] }
+  },
+  "supports": { "html": false, "align": ["full"] },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

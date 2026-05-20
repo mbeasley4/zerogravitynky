@@ -1,0 +1,274 @@
+// ─────────────────────────────────────────────────────────────────
+//  Layout — outside @layer
+//  Nav/footer link resets, breadcrumbs, skip link, image fixes,
+//  page hero, WP Group block, and separator spacing.
+//  These rules are unlayered so they beat WooCommerce's unlayered
+//  stylesheet regardless of specificity.
+// ─────────────────────────────────────────────────────────────────
+@use 'variables' as v;
+
+// ── Nav / UI link resets ──────────────────────────────────────────
+// These must NOT inherit prose-link underlines.
+
+#navbar a,
+#topbar a,
+footer a,
+.woocommerce-breadcrumb a,
+.woocommerce-pagination a,
+.wc-proceed-to-checkout a,
+.wp-block-button__link {
+  text-decoration: none;
+}
+
+// ── Footer links ──────────────────────────────────────────────────
+footer a {
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.2s;
+
+  &:hover { color: #fff; }
+
+  &:focus-visible {
+    outline: 3px solid v.$brand-light;
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+}
+
+// ── WooCommerce breadcrumb ────────────────────────────────────────
+.woocommerce-breadcrumb a {
+  color: #4a0dbe;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+
+  &:hover { color: v.$brand-sage; }
+}
+
+// ── Skip-to-content link (WCAG 2.4.1) ────────────────────────────
+// Uses position:fixed + transform so the link reliably appears at
+// the top of the viewport on focus regardless of page scroll.
+// bg-brand-dark (#3D4A3E) on white text = ~9.3:1 contrast (AAA).
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: v.$brand-dark;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0 0 0.5rem 0.5rem;
+  text-decoration: none;
+  transform: translateY(-100%);
+  transition: transform 0.15s ease;
+
+  &:focus,
+  &:focus-visible {
+    transform: translateY(0);
+    outline: 3px solid v.$brand-light;
+    outline-offset: 2px;
+  }
+}
+
+// ── WooCommerce image resets ──────────────────────────────────────
+// Restores Tailwind preflight img defaults in WooCommerce contexts
+.woocommerce img,
+.woocommerce-page img {
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+}
+
+// Let Tailwind utility classes control images in navbar (revert-layer
+// steps back to @layer utilities, undoing the unlayered reset above)
+#navbar img {
+  height: revert-layer;
+  max-width: revert-layer;
+}
+
+// Logo size overrides (after the img reset)
+#navbar img.site-logo,
+.woocommerce-page #navbar img.site-logo,
+.woocommerce #navbar img.site-logo {
+  height: 2.5rem;
+  width: auto;
+}
+
+footer img.site-logo,
+.woocommerce-page footer img.site-logo,
+.woocommerce footer img.site-logo {
+  height: 2.25rem;
+  width: auto;
+}
+
+// ── Page hero section ─────────────────────────────────────────────
+// Padding accounts for topbar (36px) + navbar (~72px)
+.page-hero-section           { padding-top: 108px; }
+.admin-bar .page-hero-section { padding-top: 140px; } // +32px admin bar
+.page-hero-short             { min-height: 320px; }
+.page-hero-tall              { min-height: 420px; }
+
+// ── Separator spacing ─────────────────────────────────────────────
+.wp-block-separator { margin-bottom: 1.75em; }
+
+// ── WP Group block — inner container ─────────────────────────────
+// Matches zg-column centering + horizontal padding so a Group block
+// with "constrained" layout can replace zg-column. Vertical padding
+// is set per-block via the editor spacing panel.
+
+.wp-block-group__inner-container {
+  max-width: 80rem;       // equiv. max-w-7xl
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;  // equiv. px-5
+  padding-right: 1.25rem;
+
+  @media (min-width: 1024px) {
+    padding-left: 2rem;   // equiv. lg:px-8
+    padding-right: 2rem;
+  }
+}
+
+// ── Paragraphs + lists inside Group blocks ────────────────────────
+// Unlayered so these beat Gutenberg's own unlayered resets
+
+.wp-block-group__inner-container {
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+    color: v.$brand-dark;
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: v.$brand-dark;
+  }
+
+  ol {
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: v.$brand-dark;
+  }
+
+  li {
+    line-height: 1.75;
+    margin-bottom: 0.375rem;
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  ul ul { list-style: circle; margin-top: 0.375rem; margin-bottom: 0.375rem; }
+  ul ul ul { list-style: square; }
+  ol ol { list-style: lower-alpha; margin-top: 0.375rem; margin-bottom: 0.375rem; }
+
+  // ── Images ───────────────────────────────────────────────────
+  .wp-block-image {
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(v.$brand-sage, 0.12);
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    &.zg-p-img { padding: 2rem; }
+
+    figcaption {
+      font-size: 0.8125rem;
+      color: v.$brand-gray;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+  }
+
+  // ── Buttons ───────────────────────────────────────────────────
+  .wp-block-button__link {
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    padding: 0.875rem 2rem;
+    line-height: 1.2;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  }
+
+  // Fill (primary) — gold
+  .wp-block-button.is-style-fill .wp-block-button__link,
+  .wp-block-button:not(.is-style-outline) .wp-block-button__link {
+    background: v.$brand-taupe;
+    color: #fff !important;
+    box-shadow: 0 4px 16px rgba(v.$brand-taupe, 0.35);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(v.$brand-taupe, 0.45);
+      opacity: 0.95;
+    }
+  }
+
+  // Outline (secondary) — purple
+  .wp-block-button.is-style-outline .wp-block-button__link {
+    background: transparent;
+    color: v.$brand-sage !important;
+    border: 2px solid v.$brand-sage;
+    box-shadow: none;
+
+    &:hover {
+      background: rgba(v.$brand-sage, 0.06);
+      transform: scale(1.03);
+    }
+  }
+}
+
+// Dark-background groups: flip outline to white
+.wp-block-group.has-background {
+  &.has-brand-dark-background-color,
+  &.has-brand-sage-background-color {
+    .wp-block-button.is-style-outline .wp-block-button__link {
+      color: #fff !important;
+      border-color: rgba(255, 255, 255, 0.5);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+}
+
+// ── WP block spacing ──────────────────────────────────────────────
+.wp-block-group + [class*="wp-block-zerogravitynky-"],
+.wp-block-cover  + [class*="wp-block-zerogravitynky-"],
+[class*="wp-block-zerogravitynky-"] + .wp-block-cover {
+  margin-top: 4rem;
+}
+
+.wp-block-group { padding-top: 4rem; }
+
+// Gallery block inside groups needs no extra top padding
+.wp-block-gallery {
+  margin-block-start: 0 !important;
+  margin-top: 0 !important;
+}
+
+.wp-block-group:has(.wp-block-gallery) {
+  padding-top: 0 !important;
+
+  .wp-block-group__inner-container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+// Staff modal content group reset
+.staff-modal-content .wp-block-group { padding-top: 0; }
+
+// ── WooCommerce: hide "View cart" link after AJAX add-to-cart ─────
+a.added_to_cart.wc-forward { display: none !important; }

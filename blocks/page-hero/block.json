@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/page-hero",
+  "version": "1.0.0",
+  "title": "ZG Page Hero",
+  "category": "zerogravitynky",
+  "icon": "cover-image",
+  "description": "Full-width page hero with optional title override, subtext, CTA button, and image.",
+  "keywords": ["hero", "page", "header", "banner"],
+  "attributes": {
+    "title":    { "type": "string",  "default": "" },
+    "subtext":  { "type": "string",  "default": "" },
+    "ctaLabel": { "type": "string",  "default": "" },
+    "ctaUrl":   { "type": "string",  "default": "" },
+    "imageId":  { "type": "integer" },
+    "imageUrl": { "type": "string",  "default": "" },
+    "imageAlt": { "type": "string",  "default": "" }
+  },
+  "supports": {
+    "html":      false,
+    "align":     ["full"],
+    "inserter":  true,
+    "multiple":  false
+  },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

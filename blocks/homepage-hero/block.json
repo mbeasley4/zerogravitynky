@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/homepage-hero",
+  "version": "1.0.0",
+  "title": "ZG Homepage Hero",
+  "category": "zerogravitynky",
+  "icon": "cover-image",
+  "description": "Full-width hero with headline, subtext, two CTAs, and a right-side image.",
+  "attributes": {
+    "badge":             { "type": "string", "default": "Voted Best Med Spa in Northern Kentucky" },
+    "headlineLine1":     { "type": "string", "default": "Reveal Your" },
+    "headlineAccent":    { "type": "string", "default": "Most Radiant" },
+    "headlineLine3":     { "type": "string", "default": "Self" },
+    "subheadline":       { "type": "string", "default": "Northern Kentucky's premier medical spa — operated by nurse practitioners and RNs with 20+ years of combined expertise." },
+    "ctaLabel1":         { "type": "string", "default": "Book a Consultation" },
+    "ctaUrl1":           { "type": "string", "default": "/zg-wellness-dermatology-services/" },
+    "ctaLabel2":         { "type": "string", "default": "View Services" },
+    "ctaUrl2":           { "type": "string", "default": "#services" },
+    "imageId":           { "type": "number", "default": 0 },
+    "imageUrl":          { "type": "string", "default": "" },
+    "imageAlt":          { "type": "string", "default": "Voted Best Med Spa in Northern Kentucky" }
+  },
+  "supports": { "html": false, "align": ["full"] },
+  "render": "file:./render.php",
+  "editorScript": "zg-blocks"
+}

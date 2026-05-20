@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/marquee-strip",
+  "version": "1.0.0",
+  "title": "ZG Marquee Strip",
+  "category": "zerogravitynky",
+  "icon": "slides",
+  "description": "Infinite horizontal scrolling strip of service names.",
+  "attributes": {
+    "items": {
+      "type": "array",
+      "default": [
+        "Botox & Fillers",
+        "Custom Facials & Peels",
+        "Laser Hair Removal",
+        "Body Contouring",
+        "IV Therapy & Wellness",
+        "Weight Loss Programs",
+        "Spray Tan",
+        "Eyelash Extensions",
+        "Memberships Available",
+        "ZG Aesthetics Academy"
+      ],
+      "items": { "type": "string" }
+    }
+  },
+  "supports": { "html": false, "align": ["full"] },
+  "render": "file:./render.php",
+  "editorScript": "zg-blocks"
+}

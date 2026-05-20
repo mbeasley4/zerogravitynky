@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/checkout-trust",
+  "version": "1.0.0",
+  "title": "ZG Checkout Trust Panel",
+  "category": "zerogravitynky",
+  "icon": "shield",
+  "description": "Secure checkout trust signals — SSL badge, guarantee, contact, and privacy note. Renders automatically in the checkout sidebar.",
+  "keywords": ["checkout", "trust", "secure", "badges", "sidebar"],
+  "attributes": {
+    "headline": { "type": "string", "default": "Safe &amp; Secure Checkout" },
+    "phone":    { "type": "string", "default": "(859) 344-3250" },
+    "phoneUrl": { "type": "string", "default": "tel:8593443250" },
+    "note":     { "type": "string", "default": "All treatments require a prior consultation. No refunds after purchase." }
+  },
+  "supports": {
+    "html":     false,
+    "align":    false,
+    "inserter": true,
+    "multiple": true
+  },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

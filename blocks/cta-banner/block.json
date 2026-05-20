@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/cta-banner",
+  "version": "1.0.0",
+  "title": "ZG CTA Banner",
+  "category": "zerogravitynky",
+  "icon": "megaphone",
+  "description": "Full-width CTA strip in gold or purple. Reusable across all pages.",
+  "attributes": {
+    "headline":  { "type": "string", "default": "Ready to Feel Like You?" },
+    "subtext":   { "type": "string", "default": "Book your complimentary consultation today." },
+    "ctaLabel1": { "type": "string", "default": "Schedule Your Visit" },
+    "ctaUrl1":   { "type": "string", "default": "https://web2.myaestheticspro.com/bn/index.cfm?A4E84A7CF274D7120B24A83F9BCC94DE" },
+    "ctaLabel2": { "type": "string", "default": "(859) 344-3250" },
+    "ctaUrl2":   { "type": "string", "default": "tel:8593443250" },
+    "variant":   { "type": "string", "default": "gold", "enum": ["gold", "purple", "dark"] }
+  },
+  "supports": { "html": false, "align": ["full"] },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

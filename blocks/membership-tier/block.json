@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/membership-tier",
+  "version": "1.0.0",
+  "title": "ZG Membership Tier",
+  "category": "zerogravitynky",
+  "icon": "awards",
+  "description": "Full memberships section — left copy + 3 configurable tier cards. Edit all content in the Settings panel.",
+  "attributes": {
+    "sectionLabel":  { "type": "string",  "default": "Memberships" },
+    "sectionTitle":  { "type": "string",  "default": "Exclusive ZG Membership Plans" },
+    "sectionBody":   { "type": "string",  "default": "Unlock exclusive member pricing, priority booking, and monthly treatment credits with a Zero Gravity membership. The most cost-effective way to maintain beautiful, healthy skin year-round." },
+    "perks":         { "type": "string",  "default": "Monthly treatment credits applied automatically\nPriority scheduling — always first in line\nExclusive member-only pricing on all services\nAccess to member events and early promotions" },
+    "ctaLabel":      { "type": "string",  "default": "Explore Memberships" },
+    "ctaUrl":        { "type": "string",  "default": "/zero-gravity-memberships/" },
+    "imageId":       { "type": "integer", "default": 0 },
+    "imageUrl":      { "type": "string",  "default": "https://zerogravitynky.com/wp-content/uploads/2025/04/zg-home-membership-1024x1024.png" },
+    "imageAlt":      { "type": "string",  "default": "Zero Gravity Memberships" },
+
+    "tier1Label":    { "type": "string",  "default": "Aesthetics" },
+    "tier1Name":     { "type": "string",  "default": "Glow Membership" },
+    "tier1Desc":     { "type": "string",  "default": "Monthly facials, skincare treatments, and priority aesthetic services at member rates." },
+
+    "tier2Label":    { "type": "string",  "default": "Wellness" },
+    "tier2Name":     { "type": "string",  "default": "Vitality Membership" },
+    "tier2Desc":     { "type": "string",  "default": "IV therapies, wellness visits, and weight loss support with monthly credits and discounted add-ons." },
+    "tier2Badge":    { "type": "string",  "default": "Popular" },
+
+    "tier3Label":    { "type": "string",  "default": "Premium" },
+    "tier3Name":     { "type": "string",  "default": "ZG VIP Membership" },
+    "tier3Desc":     { "type": "string",  "default": "The full ZG experience — unlimited access to aesthetic and wellness services, first-call priority, and exclusive VIP events." },
+
+    "bgColor":       { "type": "string",  "default": "white", "enum": ["white", "lavender", "purple", "gold"] }
+  },
+  "supports": { "html": false, "align": ["full"] },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/zg-contact-hours",
+  "version": "1.0.0",
+  "title": "ZG Contact Hours",
+  "category": "zerogravitynky",
+  "icon": "grid-view",
+  "description": "Responsive layout for contact hours",
+  "attributes": {
+    "sectionTitle":       { "type": "string",  "default": "Our Hours" },
+    "mapImageId":         { "type": "integer", "default": 0 },
+    "mapImageUrl":        { "type": "string",  "default": "https://zerogravitynky.com/wp-content/uploads/2019/11/ZGMAP.jpg" },
+    "mapImageAlt":        { "type": "string",  "default": "Zero Gravity location map — Crestview Hills Town Center" },
+    "exteriorImageId":    { "type": "integer", "default": 0 },
+    "exteriorImageUrl":   { "type": "string",  "default": "https://zerogravitynky.com/wp-content/uploads/2025/07/zg-exterior-web2-e1752804466329-995x1024.png" },
+    "exteriorImageAlt":   { "type": "string",  "default": "Zero Gravity Med Spa exterior — Crestview Hills" },
+    "mapImageLink":       { "type": "string",  "default": "https://maps.google.com/?q=2853+Town+Center+Blvd,+Crestview+Hills,+KY+41017" },
+    "exteriorImageLink":  { "type": "string",  "default": "https://maps.google.com/?q=2853+Town+Center+Blvd,+Crestview+Hills,+KY+41017" }
+  },
+  "supports": { "html": false, "align": ["full"] },
+  "render": "file:./render.php",
+  "editorScript": "zg-blocks"
+}

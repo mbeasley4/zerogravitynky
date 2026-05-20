@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/zg-image-split",
+  "version": "1.0.0",
+  "title": "ZG Image Split",
+  "category": "zerogravitynky",
+  "icon": "align-pull-left",
+  "description": "Image on left or right with an H2, body copy (wpautop), and up to two CTA buttons. Image always appears on top on mobile.",
+  "attributes": {
+    "imageId":       { "type": "integer", "default": 0 },
+    "imageUrl":      { "type": "string",  "default": "" },
+    "imageAlt":      { "type": "string",  "default": "" },
+    "imagePosition": { "type": "string",  "default": "left",     "enum": ["left","right"] },
+    "background":    { "type": "string",  "default": "lavender", "enum": ["dark","olive","lavender","white"] },
+    "heading":       { "type": "string",  "default": "" },
+    "content":       { "type": "string",  "default": "" },
+    "ctaLabel1":     { "type": "string",  "default": "" },
+    "ctaUrl1":       { "type": "string",  "default": "" },
+    "ctaLabel2":     { "type": "string",  "default": "" },
+    "ctaUrl2":       { "type": "string",  "default": "" }
+  },
+  "supports": { "html": false, "align": ["full"] },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

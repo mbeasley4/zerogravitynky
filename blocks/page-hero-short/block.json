@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/page-hero-short",
+  "version": "1.0.0",
+  "title": "ZG Page Hero (Short)",
+  "category": "zerogravitynky",
+  "icon": "cover-image",
+  "description": "Compact gradient hero with eyebrow label, shimmer headline, and subtext. Used on cart, checkout, and WooCommerce pages.",
+  "keywords": ["hero", "short", "checkout", "cart", "banner", "header"],
+  "attributes": {
+    "eyebrow":       { "type": "string", "default": "Zero Gravity Aesthetics &amp; Wellness" },
+    "headingBefore": { "type": "string", "default": "Secure" },
+    "headingShimmer":{ "type": "string", "default": "Checkout" },
+    "subtext":       { "type": "string", "default": "Complete your booking below. Your information is always safe with us." }
+  },
+  "supports": {
+    "html":      false,
+    "align":     ["full"],
+    "inserter":  true,
+    "multiple":  true
+  },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

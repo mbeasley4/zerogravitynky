@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/zg-policy-notice",
+  "version": "1.0.0",
+  "title": "ZG Policy Notice",
+  "category": "zerogravitynky",
+  "icon": "shield",
+  "description": "Two-card policy notice block — cancellation and consultation policies, fully editable.",
+  "attributes": {
+    "sectionLabel": { "type": "string", "default": "Important Updates" },
+    "sectionTitle": { "type": "string", "default": "Our Policies" },
+
+    "card1Title": { "type": "string", "default": "Cancellation Policy" },
+    "card1Items": {
+      "type": "string",
+      "default": "Cancel within 24 hours of your appointment — $25 charge\nNo-show your scheduled appointment — $100 charge\nArrive 10+ minutes late — $25 charge and/or appointment rescheduled"
+    },
+
+    "card2Title": { "type": "string", "default": "Consultation Policy" },
+    "card2Items": {
+      "type": "string",
+      "default": "Your first treatment plan consultation is complimentary\nAdditional consultations require a $50 deposit to schedule\nPrepay your service at consultation — $50 fee applied to your service"
+    }
+  },
+  "supports": { "html": false, "align": ["wide", "full"] },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

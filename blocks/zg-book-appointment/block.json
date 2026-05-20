@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/zg-book-appointment",
+  "version": "1.0.0",
+  "title": "ZG Book Appointment Banner",
+  "category": "zerogravitynky",
+  "icon": "calendar-alt",
+  "description": "Request an appointment CTA strip linking to the online booking portal. Editable headline, subtext, and URL.",
+  "attributes": {
+    "headline": { "type": "string", "default": "Request an Appointment" },
+    "subtext":  { "type": "string", "default": "Schedule your visit online — quick, easy, and available 24/7. New and returning clients welcome." },
+    "ctaLabel": { "type": "string", "default": "Book Now" },
+    "ctaUrl":   { "type": "string", "default": "https://web2.myaestheticspro.com/booknow/index.cfm?A4E84A7CF274D7120B24A83F9BCC94DE" },
+    "variant":  { "type": "string", "default": "dark", "enum": ["light", "dark"] }
+  },
+  "supports": { "html": false, "align": ["full"] },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

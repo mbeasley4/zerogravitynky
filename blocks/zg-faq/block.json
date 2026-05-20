@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/zg-faq",
+  "version": "1.0.0",
+  "title": "ZG FAQ Accordion",
+  "category": "zerogravitynky",
+  "icon": "editor-help",
+  "description": "Accordion-style FAQ section with editable questions and answers.",
+  "attributes": {
+    "sectionTitle": { "type": "string", "default": "Frequently Asked Questions" },
+    "faqs": {
+      "type": "array",
+      "default": [
+        {
+          "question": "Is SculpSure Right For Me?",
+          "answer": "If you have areas of your body that have fat deposits that don't seem to respond to diet and exercise, SculpSure can be an effective approach. SculpSure is for patients 18 or older, who are in good health. During your Free Consultation, we'll explain the treatment in detail and what you can expect. Then you can make the right decision for yourself.",
+          "imageId": 0,
+          "imageUrl": ""
+        },
+        {
+          "question": "What Should I Expect With The Treatment?",
+          "answer": "Because the treatment uses heat, the skin is first cooled to enhance your comfort during session. The laser used will cycle off and on, raising the temperature of the fat cells. You'll feel a deep warmth or perhaps a tingling sensation periodically. Typically, there is little to no discomfort. The session will take about 25 minutes. Afterward, you'll be able to go about your daily routine without any downtime.",
+          "imageId": 0,
+          "imageUrl": ""
+        },
+        {
+          "question": "What Are The Results?",
+          "answer": "The results from your SculpSure treatment will become apparent in the weeks after the treatment, with the treated areas being tighter and more contoured. Depending on your goals, several treatments may be needed for optimum results.",
+          "imageId": 0,
+          "imageUrl": ""
+        }
+      ]
+    }
+  },
+  "supports": { "html": false, "align": ["wide", "full"] },
+  "render": "file:./render.php",
+  "editorScript": "zg-blocks"
+}

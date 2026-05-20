@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/zg-icon-cards",
+  "version": "1.0.0",
+  "title": "ZG Icon Cards",
+  "category": "zerogravitynky",
+  "icon": "grid-view",
+  "description": "Flexible card grid (2–4 columns) with section headline, intro text, and per-card icon, headline, content, and optional CTA button.",
+  "attributes": {
+    "sectionHeadline":    { "type": "string", "default": "How It Works" },
+    "sectionContent":     { "type": "string", "default": "" },
+    "sectionContentAlign":{ "type": "string", "default": "center" },
+    "columnCount":        { "type": "number", "default": 3 },
+    "cards": {
+      "type": "array",
+      "default": [
+        { "iconId": 0, "iconUrl": "", "iconAlt": "", "headline": "Monthly Deposits",  "content": "$99 is added to your Beauty Bank each month.", "ctaLabel": "", "ctaUrl": "", "align": "" },
+        { "iconId": 0, "iconUrl": "", "iconAlt": "", "headline": "Spend Anytime",     "content": "Use your funds whenever you're ready, or save up for a larger treatment.", "ctaLabel": "", "ctaUrl": "", "align": "" },
+        { "iconId": 0, "iconUrl": "", "iconAlt": "", "headline": "Never Expire",      "content": "Your banked funds are always yours while your membership is active.", "ctaLabel": "", "ctaUrl": "", "align": "" },
+        { "iconId": 0, "iconUrl": "", "iconAlt": "", "headline": "Member Savings",    "content": "Enjoy 15% off all products and aesthetic services.", "ctaLabel": "", "ctaUrl": "", "align": "" }
+      ]
+    }
+  },
+  "supports": { "html": false, "align": ["wide", "full"] },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

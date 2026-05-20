@@ -1,0 +1,90 @@
+// ─────────────────────────────────────────────────────────────────
+//  Brand Tokens
+//  Single source of truth for all design values.
+//  @use this file in each partial: @use 'variables' as v;
+// ─────────────────────────────────────────────────────────────────
+
+// ── Colors ───────────────────────────────────────────────────────
+// Palette: sage/olive primary, taupe accent, beige/sand neutral
+$brand-sage:    #7A8F7B;   // sage / olive  (primary action)
+$brand-dark:      #3D4A3E;   // dark olive    (deep bg, headings)
+$brand-mid:       #9EAF9F;   // light sage    (secondary fills)
+$brand-light:     #C5D1C6;   // pale sage     (tints, hover states)
+$brand-sand:  #E8DED2;   // sand / beige  (light bg, cards)
+$brand-taupe:      #B7AFA3;   // taupe         (accent / borders)
+$brand-taupe-dark: #8A7F76;   // dark taupe    (accent dark)
+$brand-taupe-light:#F0EBE4;   // cream         (accent light)
+$brand-gray:      #5C5753;   // warm gray     (body text)
+
+// ── Typography ───────────────────────────────────────────────────
+$font-sans:  "Plus Jakarta Sans", system-ui, sans-serif;
+$font-serif: "Fraunces", Georgia, serif;
+
+// ── Gradients ────────────────────────────────────────────────────
+$hero-gradient:   linear-gradient(135deg, #{$brand-dark} 0%, #{$brand-sage} 60%, #{$brand-mid} 100%);
+$card-gradient:   linear-gradient(135deg, #{$brand-sage}, #{$brand-mid});
+$taupe-gradient:   linear-gradient(135deg, #{$brand-taupe-dark}, #{$brand-taupe}, #{$brand-taupe-light});
+$sage-gradient: linear-gradient(135deg, #{$brand-sage} 0%, #{$brand-mid} 100%);
+
+// ── Mixins ───────────────────────────────────────────────────────
+
+/// Full-width pill button with sage gradient
+@mixin btn-sage {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: $sage-gradient;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+}
+
+/// Base text-input styling + focus ring
+@mixin input-base($border-radius: 0.625rem) {
+  display: block;
+  width: 100%;
+  border: 1.5px solid rgba($brand-sage, 0.2);
+  border-radius: $border-radius;
+  background: #fff;
+  color: $brand-dark;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    border-color: $brand-sage;
+    box-shadow: 0 0 0 3px rgba($brand-sage, 0.1);
+  }
+}
+
+/// Hover-lift card
+@mixin card-hover($color: $brand-dark, $lift: -4px) {
+  transition: transform 0.25s, box-shadow 0.25s;
+
+  &:hover {
+    transform: translateY($lift);
+    box-shadow: 0 8px 32px rgba($color, 0.13);
+  }
+}
+
+/// Pill badge (status / category labels)
+@mixin pill-badge($bg, $color) {
+  display: inline-block;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.75rem;
+  background: $bg;
+  color: $color;
+  width: fit-content;
+}

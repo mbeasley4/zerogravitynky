@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/service-card",
+  "version": "1.0.0",
+  "title": "ZG Service Card",
+  "category": "zerogravitynky",
+  "icon": "star-filled",
+  "description": "Hoverable service card with image, title, description, and CTA link.",
+  "attributes": {
+    "imageUrl":    { "type": "string",  "default": "" },
+    "imageAlt":    { "type": "string",  "default": "" },
+    "imageId":     { "type": "number",  "default": 0 },
+    "title":       { "type": "string",  "default": "Service Title" },
+    "description": { "type": "string",  "default": "Service description goes here." },
+    "linkUrl":     { "type": "string",  "default": "#" },
+    "linkText":    { "type": "string",  "default": "Learn More" }
+  },
+  "supports": { "html": false, "align": false },
+  "editorScript": "zg-blocks"
+}

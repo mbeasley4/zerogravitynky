@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/zg-column",
+  "version": "1.0.0",
+  "title": "ZG Column",
+  "category": "zerogravitynky",
+  "icon": "columns",
+  "description": "A branded content column that accepts any Gutenberg blocks. Use inside layouts, checkout pages, or anywhere a styled wrapper is needed.",
+  "keywords": ["column", "container", "layout", "section", "wrapper"],
+  "attributes": {
+    "padding":    { "type": "string",  "default": "md" },
+    "background": { "type": "string",  "default": "none" },
+    "rounded":    { "type": "boolean", "default": true },
+    "bordered":   { "type": "boolean", "default": false },
+    "shadow":     { "type": "boolean", "default": false }
+  },
+  "supports": {
+    "html":    false,
+    "align":   ["wide", "full"],
+    "anchor":  true,
+    "spacing": false
+  },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/zg-category-products",
+  "version": "1.0.0",
+  "title": "ZG Category Products",
+  "category": "zerogravitynky",
+  "icon": "products",
+  "description": "Shows the top 4 best-selling products from a chosen WooCommerce category. Child categories link up to the parent for the View All button.",
+  "attributes": {
+    "categoryId":   { "type": "number", "default": 0 },
+    "limit":        { "type": "number", "default": 4 },
+    "heading":      { "type": "string", "default": "" },
+    "colorScheme":  { "type": "string", "default": "white" }
+  },
+  "supports": { "html": false, "align": ["wide", "full"] },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

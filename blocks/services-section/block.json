@@ -1,0 +1,79 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/services-section",
+  "version": "1.0.0",
+  "title": "ZG Services Section",
+  "category": "zerogravitynky",
+  "icon": "grid-view",
+  "description": "Responsive grid of service cards — each with image, title, description, and CTA link.",
+  "attributes": {
+    "sectionTitle": { "type": "string", "default": "Our Services" },
+    "backgroundColor": { "type": "string", "default": "white" },
+    "ctaLabel": { "type": "string", "default": "View All Services" },
+    "ctaUrl":   { "type": "string", "default": "/services/" },
+    "services": {
+      "type": "array",
+      "default": [
+        {
+          "imageUrl": "",
+          "imageAlt": "",
+          "imageId": 0,
+          "title": "Botox & Dermal Fillers",
+          "description": "Smooth fine lines and restore youthful volume with wrinkle-relaxing Botox and precision dermal fillers.",
+          "linkUrl": "/zg-wellness-dermatology-services/",
+          "linkText": "Learn More"
+        },
+        {
+          "imageUrl": "",
+          "imageAlt": "",
+          "imageId": 0,
+          "title": "Facials & Chemical Peels",
+          "description": "Custom-crafted facials and medical-grade chemical peels that resurface and nourish your skin.",
+          "linkUrl": "/zg-wellness-dermatology-services/",
+          "linkText": "Learn More"
+        },
+        {
+          "imageUrl": "",
+          "imageAlt": "",
+          "imageId": 0,
+          "title": "Laser Hair Removal",
+          "description": "Long-lasting smoothness with advanced laser treatments for all skin types.",
+          "linkUrl": "/zg-wellness-dermatology-services/",
+          "linkText": "Learn More"
+        },
+        {
+          "imageUrl": "",
+          "imageAlt": "",
+          "imageId": 0,
+          "title": "Body Contouring",
+          "description": "Non-invasive body sculpting treatments that reshape and tone without surgery.",
+          "linkUrl": "/product-category/body-contouring/",
+          "linkText": "Learn More"
+        },
+        {
+          "imageUrl": "",
+          "imageAlt": "",
+          "imageId": 0,
+          "title": "IV Therapy & Wellness",
+          "description": "Replenish and recharge with customized IV infusions for fast, effective results.",
+          "linkUrl": "/wellness/",
+          "linkText": "Learn More"
+        },
+        {
+          "imageUrl": "",
+          "imageAlt": "",
+          "imageId": 0,
+          "title": "Weight Loss Programs",
+          "description": "Medically supervised weight loss with personalized plans and real results.",
+          "linkUrl": "/wellness/",
+          "linkText": "Learn More"
+        }
+      ],
+      "items": { "type": "object" }
+    }
+  },
+  "supports": { "html": false, "align": ["full"] },
+  "render": "file:./render.php",
+  "editorScript": "zg-blocks"
+}

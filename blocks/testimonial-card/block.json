@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "zerogravitynky/testimonial-card",
+  "version": "1.0.0",
+  "title": "ZG Testimonial Card",
+  "category": "zerogravitynky",
+  "icon": "format-quote",
+  "description": "Three-card testimonials section. Edit all quotes, names, and colors in the Settings panel.",
+  "attributes": {
+    "sectionTitle":  { "type": "string", "default": "What Our Clients Say" },
+    "ratingLabel":   { "type": "string", "default": "5.0 · Consistently 5-star rated" },
+
+    "t1Quote":       { "type": "string", "default": "I have been going to Zero Gravity for years and have never been disappointed. The staff is incredibly knowledgeable and the results speak for themselves. Candace always makes me feel confident and comfortable!" },
+    "t1Name":        { "type": "string", "default": "Sarah M." },
+    "t1Type":        { "type": "string", "default": "Botox & Filler Client" },
+    "t1Initials":    { "type": "string", "default": "SM" },
+    "t1Color":       { "type": "string", "default": "brand-sage", "enum": ["brand-sage","brand-taupe","brand-mid"] },
+
+    "t2Quote":       { "type": "string", "default": "Zero Gravity is the only place I trust for my skincare. The facials are absolutely amazing — my skin has never looked better. Jennifer takes the time to really understand your skin concerns. Worth every penny!" },
+    "t2Name":        { "type": "string", "default": "Ashley K." },
+    "t2Type":        { "type": "string", "default": "Facial & Peel Client" },
+    "t2Initials":    { "type": "string", "default": "AK" },
+    "t2Color":       { "type": "string", "default": "brand-taupe", "enum": ["brand-sage","brand-taupe","brand-mid"] },
+
+    "t3Quote":       { "type": "string", "default": "I started the IV therapy and weight loss program and the results have been incredible. The team is professional, warm, and genuinely invested in your health. This is so much more than a typical med spa." },
+    "t3Name":        { "type": "string", "default": "Laura H." },
+    "t3Type":        { "type": "string", "default": "IV Therapy & Wellness Client" },
+    "t3Initials":    { "type": "string", "default": "LH" },
+    "t3Color":       { "type": "string", "default": "brand-mid", "enum": ["brand-sage","brand-taupe","brand-mid"] }
+  },
+  "supports": { "html": false, "align": ["full"] },
+  "render":       "file:./render.php",
+  "editorScript": "zg-blocks"
+}

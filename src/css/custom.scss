@@ -1,0 +1,17 @@
+// ─────────────────────────────────────────────────────────────────
+//  Custom styles entry point
+//
+//  Compiled by Sass → src/css/.compiled/custom.css
+//  Then processed by PostCSS (tailwindcss + autoprefixer + cssnano)
+//  as part of the main.css pipeline.
+//
+//  Partial load order matters — lower layers must precede higher ones.
+// ─────────────────────────────────────────────────────────────────
+
+@use 'animations'; // @keyframes (no @layer)
+@use 'base';       // @layer base
+@use 'utilities';  // @layer utilities
+@use 'layout';     // unlayered layout rules
+@use 'staff';      // staff cards, modal, ZG column
+@use 'account';    // My Account + checkout
+@use 'content';    // blog, specials, toast

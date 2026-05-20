@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors — sage/taupe/sand wellness palette */
+  --color-brand-sage:     #7A8F7B;  /* sage / olive  (primary action)  */
+  --color-brand-dark:       #3D4A3E;  /* dark olive    (deep bg, headings) */
+  --color-brand-mid:        #9EAF9F;  /* light sage    (secondary fills)  */
+  --color-brand-light:      #C5D1C6;  /* pale sage     (tints, hovers)    */
+  --color-brand-sand:   #E8DED2;  /* sand / beige  (light bg, cards)  */
+  --color-brand-taupe:       #B7AFA3;  /* taupe         (accent / borders) */
+  --color-brand-taupe-dark:  #8A7F76;  /* dark taupe    (accent dark)      */
+  --color-brand-taupe-light: #F0EBE4;  /* cream         (accent light)     */
+  --color-brand-gray:       #5C5753;  /* warm gray     (body text)        */
+
+  /* Fonts */
+  --font-family-sans:  "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-family-serif: "Fraunces", Georgia, serif;
+
+  /* Background gradients */
+  --background-image-hero-gradient: linear-gradient(135deg, #3D4A3E 0%, #7A8F7B 60%, #9EAF9F 100%);
+  --background-image-card-gradient: linear-gradient(135deg, #7A8F7B, #9EAF9F);
+  --background-image-taupe-gradient: linear-gradient(135deg, #8A7F76, #B7AFA3, #F0EBE4);
+
+  /* Animation references (keyframes defined below) */
+  --animate-fade-up:    fadeUp 0.7s ease forwards;
+  --animate-float:      float 4s ease-in-out infinite;
+  --animate-float-slow: float 6s ease-in-out infinite;
+  --animate-shimmer:    shimmer 3s linear infinite;
+  --animate-scroll:     scroll 25s linear infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Fraunces", Georgia, serif;
+    color: #3D4A3E;
+    line-height: 1.15;
+    font-weight: 700;
+    margin-top: 1.5em;
+    margin-bottom: 0.6em;
+  }
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child { margin-top: 0; }
+
+  h1 { font-size: clamp(2.25rem, 5vw, 3.75rem);  letter-spacing: -0.02em;  margin-bottom: 0.5em; }
+  h2 { font-size: clamp(1.75rem, 3.5vw, 2.75rem); letter-spacing: -0.015em; }
+  h3 { font-size: clamp(1.375rem, 2.5vw, 2rem);   letter-spacing: -0.01em; }
+  h4 { font-size: clamp(1.125rem, 2vw, 1.5rem);   font-weight: 600; }
+  h5 { font-size: clamp(1rem, 1.5vw, 1.1875rem);  font-weight: 600; letter-spacing: 0.01em; text-transform: uppercase; color: #7A8F7B; }
+  h6 { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #B7AFA3; }
+}
+
+@layer utilities {
+  .shimmer-text {
+    background: linear-gradient(90deg, #6B6560 0%, #B7AFA3 30%, #E8DED2 50%, #B7AFA3 70%, #6B6560 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  .glass {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .testimonial-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+}
