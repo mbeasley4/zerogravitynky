@@ -32,14 +32,14 @@ const BG_STYLES = {
         descColor:    '#515151',
         linkColor:    '#7A8F7B',
     },
-    lavender: {
+    sand: {
         sectionBg:    '#E8DED2',
         headingColor: '#3D4A3E',
         cardBg:       '#ffffff',
         descColor:    '#515151',
         linkColor:    '#7A8F7B',
     },
-    'purple-dark': {
+    dark: {
         sectionBg:    '#3D4A3E',
         headingColor: '#ffffff',
         cardBg:       'rgba(255,255,255,0.10)',
@@ -84,8 +84,8 @@ export default function Edit( { attributes, setAttributes } ) {
                         value={ backgroundColor }
                         options={ [
                             { label: __( 'White', 'zerogravitynky' ),        value: 'white' },
-                            { label: __( 'Beige / Sand', 'zerogravitynky' ),  value: 'lavender' },
-                            { label: __( 'Olive (Dark)', 'zerogravitynky' ),  value: 'purple-dark' },
+                            { label: __( 'Beige / Sand', 'zerogravitynky' ),  value: 'sand' },
+                            { label: __( 'Olive (Dark)', 'zerogravitynky' ),  value: 'dark' },
                         ] }
                         onChange={ val => setAttributes( { backgroundColor: val } ) }
                     />

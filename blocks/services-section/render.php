@@ -18,8 +18,8 @@ if ( empty( $services ) ) {
  * ADA/WCAG AA compliant color mapping per background choice.
  *
  * white       – bg #ffffff  | heading #2d0a5e (12.4:1) | body #515151 (7.4:1) | link #720eec (5.9:1)
- * lavender    – bg #e9e6ed  | heading #2d0a5e (11.1:1) | body #515151 (6.6:1) | link #4a0099 (7.3:1)
- * purple-dark – bg #2d0a5e  | heading #ffffff (12.4:1) | body rgba white/85   | link #c4a8ff (5.2:1)
+ * sand    – bg #e9e6ed  | heading #2d0a5e (11.1:1) | body #515151 (6.6:1) | link #4a0099 (7.3:1)
+ * dark – bg #2d0a5e  | heading #ffffff (12.4:1) | body rgba white/85   | link #c4a8ff (5.2:1)
  *
  * Card backgrounds are chosen to maintain legible card/section separation
  * while keeping inner text contrast compliant.
@@ -36,7 +36,7 @@ switch ( $bg_option ) {
         $btn_class         = 'bg-brand-sage text-white hover:bg-brand-dark';
         break;
 
-    case 'purple-dark':
+    case 'dark':
         $section_bg_class  = 'bg-brand-dark';
         $heading_class     = 'text-white';
         $card_bg_class     = 'bg-white/10 border border-white/15';
