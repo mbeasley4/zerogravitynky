@@ -18,7 +18,7 @@ $arrow = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24
 <main id="main-content" tabindex="-1">
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 <?php the_content(); ?>
-<?php endwhile; endif; ?>
+<?php endwhile; endif; ?> 
 </main> 
 
 <?php get_footer(); ?>
