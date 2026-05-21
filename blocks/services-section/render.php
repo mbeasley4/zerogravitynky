@@ -25,7 +25,7 @@ if ( empty( $services ) ) {
  * while keeping inner text contrast compliant.
  */
 switch ( $bg_option ) {
-    case 'lavender':
+    case 'sand':
         $section_bg_class  = 'bg-brand-sand';
         $heading_class     = 'text-brand-dark';
         $card_bg_class     = 'bg-white';
