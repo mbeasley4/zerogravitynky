@@ -30,6 +30,11 @@ add_action( 'after_setup_theme', function () {
     register_nav_menus( [
         'primary' => __( 'Primary Navigation', 'zerogravitynky' ),
     ] );
+
+    // Image sizes matched to actual display dimensions in block templates
+    add_image_size( 'zg-service-card',  500, 352, true  ); // service-card h-44 at max ~387px wide
+    add_image_size( 'zg-content-wide',  700, 300, true  ); // about/membership images max-height:200-260px
+    add_image_size( 'zg-hero',         1200, 650, false ); // homepage hero, full-width at lg
 } );
 
 
@@ -867,6 +872,7 @@ add_action( 'wp_enqueue_scripts', function () {
         wp_dequeue_style( 'woocommerce-layout' );
         wp_dequeue_style( 'woocommerce-smallscreen' );
         wp_dequeue_style( 'wc-blocks-style' );
+        wp_dequeue_style( 'wc-blocks' );
     }
 
 }, 100 );
@@ -899,3 +905,13 @@ add_filter( 'style_loader_tag', function ( $html, $handle ) {
         $html
     );
 }, 10, 2 );
+
+
+// ─────────────────────────────────────────────
+// WebP auto-conversion for new uploads (WP 5.8+)
+// ─────────────────────────────────────────────
+add_filter( 'image_editor_output_format', function ( $formats ) {
+    $formats['image/jpeg'] = 'image/webp';
+    $formats['image/png']  = 'image/webp';
+    return $formats;
+} );

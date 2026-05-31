@@ -82,6 +82,7 @@ switch ( $bg_option ) {
                 <?php if ( $img ) : ?>
                     <img src="<?php echo $img; ?>"
                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                         loading="lazy"
                          alt="<?php echo $alt; ?>" />
                 <?php else : ?>
                     <div class="w-full h-full bg-brand-mid/30 flex items-center justify-center">

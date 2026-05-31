@@ -160,6 +160,7 @@ $icon_vip = '<svg class="w-5 h-5" style="color:#B7AFA3" fill="none" stroke="curr
                     <img src="<?php echo esc_url( $image_url ); ?>"
                          alt="<?php echo esc_attr( $image_alt ); ?>"
                          class="w-full object-cover"
+                         loading="lazy"
                          style="max-height:200px; object-position: center top;" />
                 </div>
                 <?php endif; ?>

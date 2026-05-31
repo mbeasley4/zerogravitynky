@@ -153,6 +153,7 @@ $arrow_svg = '<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none
                     <img src="<?php echo esc_url( $founder_url ); ?>"
                          alt="<?php echo esc_attr( $founder_alt ); ?>"
                          class="w-full object-cover object-top"
+                         loading="lazy"
                          style="max-height:260px;" />
                     <div class="absolute inset-0 bg-gradient-to-t <?php echo esc_attr( $overlay_from ); ?> via-transparent to-transparent"></div>
                     <?php if ( $founder_name1 || $founder_name2 ) : ?>
@@ -180,6 +181,7 @@ $arrow_svg = '<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none
                     <img src="<?php echo esc_url( $exterior_url ); ?>"
                          alt="<?php echo esc_attr( $exterior_alt ); ?>"
                          class="w-full object-cover"
+                         loading="lazy"
                          style="max-height:200px; object-position: center 30%;" />
                     <div class="absolute inset-0 bg-gradient-to-t <?php echo esc_attr( $overlay_card ); ?> via-transparent to-transparent"></div>
                     <?php if ( $exterior_caption ) : ?>
